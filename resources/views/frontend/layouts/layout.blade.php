@@ -20,11 +20,33 @@
 
 <body>
     <div class="app">
-        @include('layouts.header')
+        @include('frontend.layouts.header')
+
+        @if (session('success'))
+        <div class="alert success">
+            <span class="closebtn">&times;</span>  
+            <strong> {{ session('success') }}</strong>
+        </div>  
+        @elseif (session('info'))
+        <div class="alert info">
+            <span class="closebtn">&times;</span>  
+            <strong> {{ session('info') }}</strong>
+        </div>  
+        @elseif (session('warning'))
+        <div class="alert warning">
+            <span class="closebtn">&times;</span>  
+            <strong> {{ session('warning') }}</strong>
+        </div>  
+        @elseif (session('danger'))
+        <div class="alert">
+            <span class="closebtn">&times;</span>  
+            <strong> {{ session('danger') }}</strong>
+        </div>  
+        @endif
 
         @yield('home')
-
-        @include('layouts.footer')
+        
+        @include('frontend.layouts.footer')
     </div>
 
     <input type="checkbox" hidden class="madal__checkbox" id="modal-checkbox">
@@ -33,7 +55,8 @@
         <label for="modal-checkbox" action="#" method="POST" class="modal__overlay"> </label>
         <div class="modal__body">
             <!-- Register form -->
-            <form id="form-register" class="auth-form form-register">
+            <form enctype="multipart/form-data" id="form-register" action="{{ route('auth.register') }}" method="POST" class="auth-form form-register">
+                @csrf
                 <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__heading">Đăng ký</h3>
@@ -42,15 +65,27 @@
 
                     <div class="auth-form__form">
                         <div class="auth-form__group">
-                            <input type="text" id="email" class="auth-form__input" placeholder="Email">  
+                            <input name="name" type="text" id="name" class="auth-form__input" placeholder="Tên đăng nhập">  
                             <span class="form-message"></span>
                         </div>
                         <div class="auth-form__group">
-                            <input type="password" id="password" class="auth-form__input" placeholder="Mật khẩu">  
+                            <input name="email" type="text" id="email" class="auth-form__input" placeholder="Email">  
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="auth-form__group">
+                            <input name="phone" type="number" id="phone" class="auth-form__input" placeholder="Phone">  
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="auth-form__group">
+                            <input name="password" type="password" id="password" class="auth-form__input" placeholder="Mật khẩu">  
                             <span class="form-message"></span>
                         </div>
                         <div class="auth-form__group">
                             <input type="password" id="password_confirmation" class="auth-form__input" placeholder="Nhập lại mật khẩu">  
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="auth-form__group">
+                            <input name="avatar" type="file" id="avatar" class="auth-form__input" placeholder="Avatar">  
                             <span class="form-message"></span>
                         </div>
                     </div>
@@ -64,7 +99,7 @@
                     </div>
 
                     <div class="auth-form__controls">
-                        <button class="btn auth-form__controls-back btn--nomal">TRỞ LẠI</button>
+                        <label for="modal-checkbox" class="btn auth-form__controls-back btn--nomal">TRỞ LẠI</label>
                         <button class="form-submit btn btn--primary">ĐĂNG KÝ</button>
                     </div>
                 </div>  
@@ -86,7 +121,8 @@
             </form>
 
               <!-- Login form -->
-            <form id="form-login" action="#" method="POST" class="auth-form form-login">
+            <form id="form-login" action="{{ route('auth.login') }}" method="POST" class="auth-form form-login">
+                @csrf
                 <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__heading">Đăng nhập</h3>
@@ -95,17 +131,18 @@
 
                     <div class="auth-form__form">
                         <div class="auth-form__group">
-                            <input type="text" id="email" class="auth-form__input" placeholder="Email">  
+                            <input name="email" type="text" id="email" class="auth-form__input" placeholder="Email">  
                             <span class="form-message"></span>
                         </div>
                         <div class="auth-form__group">
-                            <input type="password" id="password" class="auth-form__input" placeholder="Mật khẩu">  
+                            <input name="password" type="password" id="password" class="auth-form__input" placeholder="Mật khẩu">  
                             <span class="form-message"></span>
                         </div>
                     </div>
                     
                     <div class="auth-form__aside">
                        <div class="auth-form__help">
+                        <input type="checkbox" class="auth-form__help-remember" name="remember"> Nhớ mật khẩu
                         <a href="#" class="auth-form__help-link auth-form__help-forgot">Quên Mật Khẩu</a>
                         <span class="auth-form__help-separate"></span>
                         <a href="#" class="auth-form__help-link">Cần trợ giúp?</a>
@@ -113,7 +150,7 @@
                     </div>
 
                     <div class="auth-form__controls">
-                        <button class="btn auth-form__controls-back btn--nomal">TRỞ LẠI</button>
+                        <label for="modal-checkbox" class="btn auth-form__controls-back btn--nomal">TRỞ LẠI</label>
                         <button class="form-submit btn btn--primary">ĐĂNG NHẬP</button>
                     </div>
                 </div>  
@@ -149,13 +186,13 @@
         Validator.minLength('#password', 6),
         Validator.isRequired('#password_confirmation'),
         Validator.isConfirmed('#password_confirmation', function() {
-          return document.querySelector('#form-1 #password').value;
+          return document.querySelector('#form-register #password').value;
         }, 'Mật khẩu nhập lại không chính xác'),
       ],
-      onSubmit: function (data) {
-        // Call api
-        console.log(data);
-      }
+    //   onSubmit: function (data) {
+    //     // Call api
+    //     console.log(data);
+    //   }
     });
     Validator({
       form: '#form-login',
@@ -167,10 +204,15 @@
         Validator.isRequired('#password'),
         Validator.minLength('#password', 6),
       ],
-      onSubmit: function (data) {
-        // Call api
-        console.log(data);
-      }
+    //   onSubmit: function (data) {
+    //     // Call api
+    //     console.log(data);
+    //   }
     });
+
+
+var close = document.querySelector(".alert");
+setTimeout(function(){ close.style.display = "none"; }, 3000);
+
 </script>
 </html>

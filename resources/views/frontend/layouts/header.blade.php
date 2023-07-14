@@ -86,11 +86,10 @@
                         Trợ giúp
                     </a>
                 </li>
-                <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate" onclick="openModal('.form-login')"><label for="modal-checkbox">Đăng ký</label></li>
-                <li class="header__navbar-item header__navbar-item--strong" onclick="openModal('.form-register')"><label for="modal-checkbox">Đăng nhập</label></li>
+                @if(Auth::user())
                 <li class="header__navbar-item header__navbar-user">
-                    <img src="https://th.bing.com/th/id/OIP.guBsMnYrqwrb1J22Klya1AHaHa?w=202&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="" class="header__navbar-user-img">
-                    <span class="header__navbar-user-name">V.H.Nam</span>
+                    <img src="{{ asset('img/avatars/'.Auth::user()->avatar) }}" class="header__navbar-user-img">
+                    <span class="header__navbar-user-name"> {{Auth::user()->name}}</span>
                     <ul class="header__navbar-user-menu">
                         <li class="header__navbar-user-item">
                             <a href="#">Tài khoản</a>
@@ -102,10 +101,14 @@
                             <a href="#">Đơn mua của tôi</a>
                         </li>
                         <li class="header__navbar-user-item header__navbar-user-item--separate">
-                            <a href="#">Đăng xuất</a>
+                            <a href="{{ route('auth.logout') }}">Đăng xuất</a>
                         </li>
                     </ul>
                 </li>
+                @else
+                <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate" onclick="openModal('.form-login')"><label for="modal-checkbox">Đăng ký</label></li>
+                <li class="header__navbar-item header__navbar-item--strong" onclick="openModal('.form-register')"><label for="modal-checkbox">Đăng nhập</label></li>
+                @endif
             </ul>
         </nav>
         
@@ -117,17 +120,12 @@
                 <i class="fa-solid fa-xmark"></i>
             </label>
             <ul class="header__mobile-navbar-list">
+                @if(Auth::user())
                 <li class="header__mobile-navbar-item">
                     <a class="header__mobile-navbar-link" href="#">
-                        <img src="https://th.bing.com/th/id/OIP.guBsMnYrqwrb1J22Klya1AHaHa?w=202&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="" class="header__mobile-navbar-img">
+                        <img src="{{ asset('img/avatars/'.Auth::user()->avatar) }}" alt="" class="header__mobile-navbar-img">
                         <span class="header__mobile-navbar-name">V.H.Nam</span>
                     </a>
-                </li>
-                <li class="header__mobile-navbar-item" onclick="openModal('.form-login')">
-                    <label for="modal-checkbox" class="header__mobile-navbar-link">Đăng ký</label>
-                </li>
-                <li class="header__mobile-navbar-item" onclick="openModal('.form-register')">
-                    <label for="modal-checkbox" class="header__mobile-navbar-link">Đăng nhập</label>
                 </li>
                 <li class="header__mobile-navbar-item">
                     <a class="header__mobile-navbar-link" href="#">Tài khoản của tôi</a>
@@ -139,8 +137,16 @@
                     <a class="header__mobile-navbar-link" href="#">Đơn mua của tôi</a>
                 </li>
                 <li class="header__mobile-navbar-item">
-                    <a class="header__mobile-navbar-link" href="#">Đăng xuất</a>
+                    <a class="header__mobile-navbar-link" href="{{ route('auth.logout') }}">Đăng xuất</a>
                 </li>
+                @else
+                <li class="header__mobile-navbar-item" onclick="openModal('.form-login')">
+                    <label for="modal-checkbox" class="header__mobile-navbar-link">Đăng ký</label>
+                </li>
+                <li class="header__mobile-navbar-item" onclick="openModal('.form-register')">
+                    <label for="modal-checkbox" class="header__mobile-navbar-link">Đăng nhập</label>
+                </li>
+                @endif
             </ul>
         </nav>
         
