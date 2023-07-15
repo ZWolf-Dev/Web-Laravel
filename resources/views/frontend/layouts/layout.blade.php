@@ -44,6 +44,8 @@
         </div>  
         @endif
 
+        @include('frontend.layouts.slider')
+
         @yield('home')
         
         @include('frontend.layouts.footer')
