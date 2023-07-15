@@ -136,8 +136,8 @@
                                 </div>
                                 <div class="home-product-item__action">
                                     <span class="home-product-item__like home-product-item__like--liked">
-                                        <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
-                                        <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
+                                        <i class="home-product-item__like-icon-fill fa-regular fa-heart" onclick="regular(this)"></i>
+                                        <i class="home-product-item__like-icon-empty fa-solid fa-heart" onclick="solid(this)"></i>
                                     </span>
                                     <div class="home-product-item__rating">
                                         <i class="home-product-item__star--gold fa-solid fa-star"></i>

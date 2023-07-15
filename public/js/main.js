@@ -113,3 +113,17 @@ products.forEach(function(e) {
         icon.classList.toggle('hidden');
     });
 });
+
+// Heart
+function regular(e) {
+    e.classList.remove("home-product-item__like-icon-fill");
+    e.classList.add("home-product-item__like-icon-empty");
+    e.nextElementSibling.classList.remove("home-product-item__like-icon-empty");
+    e.nextElementSibling.classList.add("home-product-item__like-icon-fill");
+}
+function solid(e) {
+    e.previousElementSibling.classList.remove("home-product-item__like-icon-empty");
+    e.previousElementSibling.classList.add("home-product-item__like-icon-fill");
+    e.classList.remove("home-product-item__like-icon-fill");
+    e.classList.add("home-product-item__like-icon-empty");
+}
