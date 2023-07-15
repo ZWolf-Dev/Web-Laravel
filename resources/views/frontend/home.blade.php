@@ -125,13 +125,14 @@
                 <div class="home-product">
                     <div class="row sm-gutter">
                         <!-- Product item -->
+                        @foreach ($products as $product)  
                         <div class="col l-2-4 m-4 c-6 flickering">
                             <a href="#" class="home-product-item">
                                 <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/bef8b5c9809bbf10a969f7787e00d867_tn)"></div>
-                                <h4 class="home-product-item__name">[Mã 159ELSALE hoàn 7% đơn 300K] Chuột Gaming AKKO AG325 Dragon Ball Super – Goku SSG - Cổng USB</h4>
+                                <h4 class="home-product-item__name">{{ $product->name }}</h4>
                                 <div class="home-product-item__price">
-                                    <span class="home-product-item__price-old">1.200.000đ</span>
-                                    <span class="home-product-item__price-current">999.000đ</span>
+                                    <span class="home-product-item__price-old">{{ $product->price }}đ</span>
+                                    <span class="home-product-item__price-current">{{ $product->pricesale }}đ</span>
                                 </div>
                                 <div class="home-product-item__action">
                                     <span class="home-product-item__like home-product-item__like--liked">
@@ -145,310 +146,23 @@
                                         <i class="home-product-item__star--gold fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                     </div>
-                                    <span class="home-product-item__sold">88 đã bán</span>
+                                    <span class="home-product-item__sold">{{ $product->sold }} đã bán</span>
                                 </div>
                                 <div class="home-product-item__origin">
-                                    <span class="home-product-item__brand">Whoo</span>
-                                    <span class="home-product-item__origin-name">Nhật Bản</span>
+                                    <span class="home-product-item__brand">{{ $product->title }}</span>
+                                    <span class="home-product-item__origin-name">{{ $product->origin }}</span>
                                 </div>
                                 <div class="home-product-item__favourite">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>Yêu thích</span> 
+                                    <span class="home-product-item__favourite-icon hidden"><i class="fa-solid fa-check"></i></span>
+                                    <span class="home-product-item__favourite-check">Yêu thích</span> 
                                 </div>
                                 <div class="home-product-item__sale-off">
-                                    <span class="home-product-item__sale-off-percent">10%</span>
+                                    <span class="home-product-item__sale-off-percent">{{ $product->saleoff }}%</span>
                                     <span class="home-product-item__sale-off-label">GIẢM</span>
                                 </div>
                             </a>
                         </div>
-                        <div class="col l-2-4 m-4 c-6">
-                            <a href="#" class="home-product-item">
-                                <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/bef8b5c9809bbf10a969f7787e00d867_tn)"></div>
-                                <h4 class="home-product-item__name">[Mã 159ELSALE hoàn 7% đơn 300K] Chuột Gaming AKKO AG325 Dragon Ball Super – Goku SSG - Cổng USB</h4>
-                                <div class="home-product-item__price">
-                                    <span class="home-product-item__price-old">1.200.000đ</span>
-                                    <span class="home-product-item__price-current">999.000đ</span>
-                                </div>
-                                <div class="home-product-item__action">
-                                    <span class="home-product-item__like home-product-item__like--liked">
-                                        <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
-                                        <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
-                                    </span>
-                                    <div class="home-product-item__rating">
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="home-product-item__sold">88 đã bán</span>
-                                </div>
-                                <div class="home-product-item__origin">
-                                    <span class="home-product-item__brand">Whoo</span>
-                                    <span class="home-product-item__origin-name">Nhật Bản</span>
-                                </div>
-                                <div class="home-product-item__favourite">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>Yêu thích</span> 
-                                </div>
-                                <div class="home-product-item__sale-off">
-                                    <span class="home-product-item__sale-off-percent">10%</span>
-                                    <span class="home-product-item__sale-off-label">GIẢM</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col l-2-4 m-4 c-6">
-                            <a href="#" class="home-product-item">
-                                <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/bef8b5c9809bbf10a969f7787e00d867_tn)"></div>
-                                <h4 class="home-product-item__name">[Mã 159ELSALE hoàn 7% đơn 300K] Chuột Gaming AKKO AG325 Dragon Ball Super – Goku SSG - Cổng USB</h4>
-                                <div class="home-product-item__price">
-                                    <span class="home-product-item__price-old">1.200.000đ</span>
-                                    <span class="home-product-item__price-current">999.000đ</span>
-                                </div>
-                                <div class="home-product-item__action">
-                                    <span class="home-product-item__like home-product-item__like--liked">
-                                        <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
-                                        <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
-                                    </span>
-                                    <div class="home-product-item__rating">
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="home-product-item__sold">88 đã bán</span>
-                                </div>
-                                <div class="home-product-item__origin">
-                                    <span class="home-product-item__brand">Whoo</span>
-                                    <span class="home-product-item__origin-name">Nhật Bản</span>
-                                </div>
-                                <div class="home-product-item__favourite">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>Yêu thích</span> 
-                                </div>
-                                <div class="home-product-item__sale-off">
-                                    <span class="home-product-item__sale-off-percent">10%</span>
-                                    <span class="home-product-item__sale-off-label">GIẢM</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col l-2-4 m-4 c-6">
-                            <a href="#" class="home-product-item">
-                                <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/bef8b5c9809bbf10a969f7787e00d867_tn)"></div>
-                                <h4 class="home-product-item__name">[Mã 159ELSALE hoàn 7% đơn 300K] Chuột Gaming AKKO AG325 Dragon Ball Super – Goku SSG - Cổng USB</h4>
-                                <div class="home-product-item__price">
-                                    <span class="home-product-item__price-old">1.200.000đ</span>
-                                    <span class="home-product-item__price-current">999.000đ</span>
-                                </div>
-                                <div class="home-product-item__action">
-                                    <span class="home-product-item__like home-product-item__like--liked">
-                                        <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
-                                        <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
-                                    </span>
-                                    <div class="home-product-item__rating">
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="home-product-item__sold">88 đã bán</span>
-                                </div>
-                                <div class="home-product-item__origin">
-                                    <span class="home-product-item__brand">Whoo</span>
-                                    <span class="home-product-item__origin-name">Nhật Bản</span>
-                                </div>
-                                <div class="home-product-item__favourite">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>Yêu thích</span> 
-                                </div>
-                                <div class="home-product-item__sale-off">
-                                    <span class="home-product-item__sale-off-percent">10%</span>
-                                    <span class="home-product-item__sale-off-label">GIẢM</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col l-2-4 m-4 c-6">
-                            <a href="#" class="home-product-item">
-                                <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/bef8b5c9809bbf10a969f7787e00d867_tn)"></div>
-                                <h4 class="home-product-item__name">[Mã 159ELSALE hoàn 7% đơn 300K] Chuột Gaming AKKO AG325 Dragon Ball Super – Goku SSG - Cổng USB</h4>
-                                <div class="home-product-item__price">
-                                    <span class="home-product-item__price-old">1.200.000đ</span>
-                                    <span class="home-product-item__price-current">999.000đ</span>
-                                </div>
-                                <div class="home-product-item__action">
-                                    <span class="home-product-item__like home-product-item__like--liked">
-                                        <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
-                                        <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
-                                    </span>
-                                    <div class="home-product-item__rating">
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="home-product-item__sold">88 đã bán</span>
-                                </div>
-                                <div class="home-product-item__origin">
-                                    <span class="home-product-item__brand">Whoo</span>
-                                    <span class="home-product-item__origin-name">Nhật Bản</span>
-                                </div>
-                                <div class="home-product-item__favourite">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>Yêu thích</span> 
-                                </div>
-                                <div class="home-product-item__sale-off">
-                                    <span class="home-product-item__sale-off-percent">10%</span>
-                                    <span class="home-product-item__sale-off-label">GIẢM</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col l-2-4 m-4 c-6 flickering">
-                            <a href="#" class="home-product-item">
-                                <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/bef8b5c9809bbf10a969f7787e00d867_tn)"></div>
-                                <h4 class="home-product-item__name">[Mã 159ELSALE hoàn 7% đơn 300K] Chuột Gaming AKKO AG325 Dragon Ball Super – Goku SSG - Cổng USB</h4>
-                                <div class="home-product-item__price">
-                                    <span class="home-product-item__price-old">1.200.000đ</span>
-                                    <span class="home-product-item__price-current">999.000đ</span>
-                                </div>
-                                <div class="home-product-item__action">
-                                    <span class="home-product-item__like home-product-item__like--liked">
-                                        <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
-                                        <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
-                                    </span>
-                                    <div class="home-product-item__rating">
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="home-product-item__sold">88 đã bán</span>
-                                </div>
-                                <div class="home-product-item__origin">
-                                    <span class="home-product-item__brand">Whoo</span>
-                                    <span class="home-product-item__origin-name">Nhật Bản</span>
-                                </div>
-                                <div class="home-product-item__favourite">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>Yêu thích</span> 
-                                </div>
-                                <div class="home-product-item__sale-off">
-                                    <span class="home-product-item__sale-off-percent">10%</span>
-                                    <span class="home-product-item__sale-off-label">GIẢM</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col l-2-4 m-4 c-6 flickering">
-                            <a href="#" class="home-product-item">
-                                <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/bef8b5c9809bbf10a969f7787e00d867_tn)"></div>
-                                <h4 class="home-product-item__name">[Mã 159ELSALE hoàn 7% đơn 300K] Chuột Gaming AKKO AG325 Dragon Ball Super – Goku SSG - Cổng USB</h4>
-                                <div class="home-product-item__price">
-                                    <span class="home-product-item__price-old">1.200.000đ</span>
-                                    <span class="home-product-item__price-current">999.000đ</span>
-                                </div>
-                                <div class="home-product-item__action">
-                                    <span class="home-product-item__like home-product-item__like--liked">
-                                        <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
-                                        <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
-                                    </span>
-                                    <div class="home-product-item__rating">
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="home-product-item__sold">88 đã bán</span>
-                                </div>
-                                <div class="home-product-item__origin">
-                                    <span class="home-product-item__brand">Whoo</span>
-                                    <span class="home-product-item__origin-name">Nhật Bản</span>
-                                </div>
-                                <div class="home-product-item__favourite">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>Yêu thích</span> 
-                                </div>
-                                <div class="home-product-item__sale-off">
-                                    <span class="home-product-item__sale-off-percent">10%</span>
-                                    <span class="home-product-item__sale-off-label">GIẢM</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col l-2-4 m-4 c-6">
-                            <a href="#" class="home-product-item">
-                                <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/bef8b5c9809bbf10a969f7787e00d867_tn)"></div>
-                                <h4 class="home-product-item__name">[Mã 159ELSALE hoàn 7% đơn 300K] Chuột Gaming AKKO AG325 Dragon Ball Super – Goku SSG - Cổng USB</h4>
-                                <div class="home-product-item__price">
-                                    <span class="home-product-item__price-old">1.200.000đ</span>
-                                    <span class="home-product-item__price-current">999.000đ</span>
-                                </div>
-                                <div class="home-product-item__action">
-                                    <span class="home-product-item__like home-product-item__like--liked">
-                                        <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
-                                        <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
-                                    </span>
-                                    <div class="home-product-item__rating">
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="home-product-item__sold">88 đã bán</span>
-                                </div>
-                                <div class="home-product-item__origin">
-                                    <span class="home-product-item__brand">Whoo</span>
-                                    <span class="home-product-item__origin-name">Nhật Bản</span>
-                                </div>
-                                <div class="home-product-item__favourite">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>Yêu thích</span> 
-                                </div>
-                                <div class="home-product-item__sale-off">
-                                    <span class="home-product-item__sale-off-percent">10%</span>
-                                    <span class="home-product-item__sale-off-label">GIẢM</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col l-2-4 m-4 c-6">
-                            <a href="#" class="home-product-item">
-                                <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/bef8b5c9809bbf10a969f7787e00d867_tn)"></div>
-                                <h4 class="home-product-item__name">[Mã 159ELSALE hoàn 7% đơn 300K] Chuột Gaming AKKO AG325 Dragon Ball Super – Goku SSG - Cổng USB</h4>
-                                <div class="home-product-item__price">
-                                    <span class="home-product-item__price-old">1.200.000đ</span>
-                                    <span class="home-product-item__price-current">999.000đ</span>
-                                </div>
-                                <div class="home-product-item__action">
-                                    <span class="home-product-item__like home-product-item__like--liked">
-                                        <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
-                                        <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
-                                    </span>
-                                    <div class="home-product-item__rating">
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="home-product-item__star--gold fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="home-product-item__sold">88 đã bán</span>
-                                </div>
-                                <div class="home-product-item__origin">
-                                    <span class="home-product-item__brand">Whoo</span>
-                                    <span class="home-product-item__origin-name">Nhật Bản</span>
-                                </div>
-                                <div class="home-product-item__favourite">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>Yêu thích</span> 
-                                </div>
-                                <div class="home-product-item__sale-off">
-                                    <span class="home-product-item__sale-off-percent">10%</span>
-                                    <span class="home-product-item__sale-off-label">GIẢM</span>
-                                </div>
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
 

@@ -105,4 +105,11 @@ setActiveClass('.pagination-number', 'pagination-item--active');
 // header mobile sort-bar
 setActiveClass('.header__sort-item', 'header__sort-item--active', '.header__sort-bar .line');
 
-
+// Product favorites
+var products = document.querySelectorAll('.home-product-item');
+products.forEach(function(e) {
+    e.addEventListener('click', function() {
+        var icon = e.querySelector('.home-product-item__favourite-icon');
+        icon.classList.toggle('hidden');
+    });
+});

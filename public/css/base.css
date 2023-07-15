@@ -25,6 +25,9 @@ html {
     box-sizing: border-box;
 }
 
+.hidden {
+    display: none;
+}
 /* Responsive */
 
 .grid__row {

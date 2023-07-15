@@ -3,21 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\HomeController;
 
-Route::post('/login', [
-    UsersController::class,
-    'login'
-])->name('auth.login');
+Route::post('/login', [ UsersController::class, 'login'])->name('auth.login');
+Route::get('/logout', [UsersController::class, 'logout'])->name('auth.logout');
+Route::post('/register', [ UsersController::class, 'register'])->name('auth.register');
+Route::get('/products', [ ProductsController::class,'index']);
+Route::get('/posts', [ PostsController::class,'index']);
+Route::get('/home', [ HomeController::class,'index']);
 
-Route::get('/logout', [
-    UsersController::class,
-    'logout'
-])->name('auth.logout');
 
-Route::post('/register', [
-    UsersController::class,
-    'register'
-])->name('auth.register');
+
 
 Route::get('/admin', function () {
     return  view('backend/admin');
@@ -26,11 +23,6 @@ Route::get('/admin', function () {
 Route::get('/', function () {
     return  view('frontend/home');
 });
-
-Route::get('products', [
-    ProductsController::class,
-    'index'
-]);
 
 Route::middleware([
     'auth:sanctum',
