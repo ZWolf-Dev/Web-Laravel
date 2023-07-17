@@ -106,8 +106,7 @@ setActiveClass('.pagination-number', 'pagination-item--active');
 setActiveClass('.header__sort-item', 'header__sort-item--active', '.header__sort-bar .line');
 
 // Product favorites
-var products = document.querySelectorAll('.home-product-item');
-products.forEach(function(e) {
+document.querySelectorAll('.home-product-item__favourite').forEach(function(e) {
     e.addEventListener('click', function() {
         var icon = e.querySelector('.home-product-item__favourite-icon');
         icon.classList.toggle('hidden');
@@ -115,15 +114,15 @@ products.forEach(function(e) {
 });
 
 // Heart
-function regular(e) {
-    e.classList.remove("home-product-item__like-icon-fill");
-    e.classList.add("home-product-item__like-icon-empty");
-    e.nextElementSibling.classList.remove("home-product-item__like-icon-empty");
-    e.nextElementSibling.classList.add("home-product-item__like-icon-fill");
+function regular(el) {
+    el.classList.remove("home-product-item__like-icon-fill");
+    el.classList.add("home-product-item__like-icon-empty");
+    el.nextElementSibling.classList.remove("home-product-item__like-icon-empty");
+    el.nextElementSibling.classList.add("home-product-item__like-icon-fill");
 }
-function solid(e) {
-    e.previousElementSibling.classList.remove("home-product-item__like-icon-empty");
-    e.previousElementSibling.classList.add("home-product-item__like-icon-fill");
-    e.classList.remove("home-product-item__like-icon-fill");
-    e.classList.add("home-product-item__like-icon-empty");
+function solid(el) {
+    el.previousElementSibling.classList.remove("home-product-item__like-icon-empty");
+    el.previousElementSibling.classList.add("home-product-item__like-icon-fill");
+    el.classList.remove("home-product-item__like-icon-fill");
+    el.classList.add("home-product-item__like-icon-empty");
 }
